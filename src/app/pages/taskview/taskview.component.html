@@ -5,36 +5,31 @@
                 LIST
             </h1>
             <div class="list-menu">
-                <a class="list-menu-item is-active">
-                    <p>LIST1 </p>
-                </a>
-                <a class="list-menu-item">
-                    <p>LIST1 </p>
-                </a>
-                <a class="list-menu-item">
-                    <p>LIST1 </p>
-                </a>
-                <a class="list-menu-item">
-                    <p>LIST1 </p>
+                <a class="list-menu-item" *ngFor="let list of lists " [routerLink]="['/list',list._id]"
+                    routerLinkActive="is-active">
+                    <p>{{list.title}}</p>
                 </a>
             </div>
-            <button class="button is-primary has-text-white" routerLink = "/new-list">+ New List</button>
+            <button class="button is-primary has-text-white" routerLink="/new-list">+ New List</button>
         </div>
         <div class="tasks-list-container">
             <h1 class="title has-text-primary">
                 TASKS
             </h1>
             <!-- Task elements  -->
-            <div class="task">
-                <p>haahhahhaahhahah</p>
+            <div *ngIf="tasks.length >0">
+                <div class="task " *ngFor="let task of tasks" (click)="taskClick(task)" [ngClass]="{'completed': task.completed}">
+                    <p>{{task.title}}</p>
+                </div>
             </div>
-            <div class="task">
-                <p>haahhahhaahhahah</p>
+            <div>
+                <button routerLink="./new-task" class="circle-btn ">
+                    <img src="../../../assets/icons8-plus-math-100.png" class="btmImg" routeLink="/new-task">
+                </button>
             </div>
-            <div class="task complete">
-                <p>haahhahhaahhahah</p>
-            </div>
-
+            <!-- <div class="task complete" *ngFor="let task of tasks">
+                <p>{{task.title}}</p>
+            </div> -->
         </div>
     </div>
 </div>

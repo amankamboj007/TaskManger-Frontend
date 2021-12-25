@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { list } from 'src/app/model/list.model';
 import { TaskService } from '../../task.service'
 
 @Component({
@@ -8,13 +10,15 @@ import { TaskService } from '../../task.service'
 })
 export class NewListComponent implements OnInit {
 
-  constructor(private taskService:TaskService) { }
+  constructor(private taskService: TaskService, private router: Router) { }
 
   ngOnInit(): void {
   }
-  createNewList(title: string){
-    this.taskService.createList(title).subscribe((response:any)=>
-    console.log(response))
-
+  createNewList(title: string) {
+    this.taskService.createList(title).subscribe((List: any) => {
+      console.log(List)
+      //navigating to router
+      this.router.navigate(['/list', List._id])
+    })
   }
 }

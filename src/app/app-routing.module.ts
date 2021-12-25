@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NewListComponent } from './pages/new-list/new-list.component';
+import { NewTaskComponent } from './pages/new-task/new-task.component';
 import { TaskviewComponent } from './pages/taskview/taskview.component';
 
 const routes: Routes = [
-  { path: '', component: TaskviewComponent },
-  { path: 'new-list', component: NewListComponent }
+  { path: '', redirectTo: 'list', pathMatch: 'full' },
+  { path: 'list', component: TaskviewComponent },
+  { path: 'list/:listId', component: TaskviewComponent },
+  { path: 'new-list', component: NewListComponent },
+  {path:'list/:listId/new-task',component:NewTaskComponent}
 ];
 
 @NgModule({

@@ -70,8 +70,26 @@
            box-shadow:0 0 0 5px rgb(207, 234, 250);
        }
    }
-    &.complete {
+    &.completed {
         text-decoration: line-through;
         opacity: 75%;
     }
+}
+.circle-btn{
+    position: absolute;
+    bottom: 18%;
+    right: 25%;
+    width: 50px;
+    height: 45px;
+    background-color: rgb(187, 185, 171);
+    border-color: cornflowerblue;
+    border-radius: 50%;
+}
+.btmImg{    
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    left: 5px;
+    top: 4px;
+
 }
